@@ -77,14 +77,14 @@
             created: function () {
                 //axios
                 const that = this
-                fetch('http://127.0.0.1:5500/Vue-Boss/api/mockData/filters.json').then(function (res) {
+                fetch('./api/mockData/filters.json').then(function (res) {
                     return res.json()
                 }).then((data) => {
                     that.filters = data.filters
                     console.log(data)
                 })
 
-                fetch('http://127.0.0.1:5500/Vue-Boss/api/mockData/jobs.json').then(function (res) {
+                fetch('./api/mockData/jobs.json').then(function (res) {
                     return res.json()
                 }).then((data) => {
                     that.jobs = data.result
