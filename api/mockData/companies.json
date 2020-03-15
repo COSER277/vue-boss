@@ -1,0 +1,85 @@
+{
+  "code": 200,
+  "result": [
+    {
+      "id": "aaaaaaaaaaa",
+      "name": "阿里巴巴集团",
+      "logo": "./images/company.jpg",
+      "filters": [
+        {
+          "name": "北京"
+        },
+        {
+          "name": "经验不限"
+        },
+        {
+          "name": "学历不限"
+        }
+      ],
+      "salary": "20-40K",
+      "jobList": [
+        {
+          "id": "11111111111111111",
+          "title": "Java开发",
+          "salary": "20k-40k",
+          "company": "阿里巴巴集团",
+          "tags": ["北京", "经验不限", "学历不限"]
+        },
+        {
+          "id": "22222222222222222222",
+          "title": "Java开发",
+          "salary": "15k-30k",
+          "company": "阿里巴巴集团",
+          "tags": ["北京", "经验不限", "本科"]
+        },
+        {
+          "id": "333333333333333333333",
+          "title": "Java开发",
+          "salary": "20k-30k",
+          "company": "阿里巴巴集团",
+          "tags": ["北京", "3-5年", "本科"]
+        }
+      ]
+    },
+    {
+      "id": "bbbbbbbbbbbbbb",
+      "name": "华为",
+      "logo": "./images/huawei.jfif",
+      "filters": [
+        {
+          "name": "北京"
+        },
+        {
+          "name": "经验不限"
+        },
+        {
+          "name": "学历不限"
+        }
+      ],
+      "salary": "20-40K",
+      "jobList": [
+        {
+          "id": "11111111111111111",
+          "title": "Java开发",
+          "salary": "20k-40k",
+          "company": "华为",
+          "tags": ["北京", "经验不限", "学历不限"]
+        },
+        {
+          "id": "22222222222222222222",
+          "title": "Java开发",
+          "salary": "15k-30k",
+          "company": "华为",
+          "tags": ["北京", "经验不限", "本科"]
+        },
+        {
+          "id": "333333333333333333333",
+          "title": "Java开发",
+          "salary": "20k-30k",
+          "company": "华为",
+          "tags": ["北京", "3-5年", "本科"]
+        }
+      ]
+    }
+  ]
+}

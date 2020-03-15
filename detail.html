@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.png" />
+    <title>【Java招聘】_阿里巴巴集团招聘-BOSS直聘</title>
+</head>
+
+<body>
+    <div class="container" id="app">
+        <!-- 顶部 -->
+        <div class="top-bar flex padded">
+            <a href="./">
+                <img src="./images//logo.png" alt="" />
+            </a>
+            <form action="" class="flex">
+                <input type="text" placeholder="搜索职位" />
+                <button class="search-icon"></button>
+            </form>
+        </div>
+        <!-- 职位详情 -->
+        <div class="job-info padded">
+            <div class="title flex">
+                <span>{{job.title}}</span>
+                <span class="salary">{{job.salary}}</span>
+            </div>
+            <div class="props flex">
+                <div class="items flex">
+                    北京 <i></i> 1-3年 <i></i> 不限
+                </div>
+                <div>
+                    发布于:{{job.pulished_at}}
+                </div>
+            </div>
+            <div class="tags">
+                <span v-for="l in job.label" :key="l.name">{{l}}</span>
+            </div>
+        </div>
+        <!-- 公司信息 -->
+        <div class="user-info flex">
+            <img :src="job.HR.avatar" class="avatar" alt="" />
+            <div class="info">
+                <div class="name flex">
+                    <span>{{job.HR.name}}</span>
+                    <span class="like" @click="like(job.id)">
+                        <img src="./images/link-like.png" alt="">
+                        收藏
+                    </span>
+                </div>
+                <div class="desc">{{job.HR.title}}</div>
+            </div>
+            <button class="btn" type="button">立即沟通</button>
+        </div>
+        <div class="job-detail padded">
+            <div class="item">
+                <h3>职位描述</h3>
+                <div class="text">
+                    <p v-html="job.detail"></p>
+                </div>
+                <div class="item">
+                    <h3>职位分类</h3>
+                    <div class="tags">
+                        <span v-for="item in job.befines" :key="item">{{item}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="company-info flex">
+            <img src="./images/company.jpg" alt="">
+            <div class="d">
+                <div class="name flex">
+                    <span>阿里巴巴集团</span>
+                    <button class="btn" type="button">关注该公司</button>
+                </div>
+                <div>
+                    阿里巴巴（北京）软件服务有限公司
+                </div>
+                <div class="tags">
+                    移动互联网 <i></i>
+                    已上市 <i></i>
+                    1000以上
+                </div>
+            </div>
+        </div> -->
+            <!-- 推荐公司 -->
+            <div class="related-jobs padded">
+                <h3>相似职位</h3>
+                <ul class="job-list">
+                    <li v-for="item in job.jobList" :key="item.id">
+                        <a href="./detail.html" class="job-item flex">
+                            <img :src="job.logo" alt="">
+                            <div class="text ">
+                                <div class="title flex">
+                                    {{item.title}}
+                                    <span class="salary">{{item.salary}}</span>
+                                </div>
+                                <div class="flex">
+                                    <div class="company">
+                                        {{item.company}}
+                                    </div>
+                                    <button type="button" class="btn" style="flex-shrink: 0;">立即沟通</button>
+                                </div>
+                                <div class="props">
+                                    <span v-for="tag in item.tags" :key="item">{{tag}}</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 底部 -->
+            <div class="detail-footer">
+                <p>我是有底线的</p>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="./script/vue/vue.js"></script>
+        <script>
+            //view model
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    job: {
+                        id: "11111111111111111",
+                        title: "Java开发",
+                        salary: "20k-40k",
+                        company: "阿里巴巴集团",
+                        logo: "./images/company.jpg",
+                        tags: ["北京", "经验不限", "学历不限"],
+                        pulished_at: "07月02日",
+                        label: ["Java", "vueJs", "react", "nodejs"],
+                        HR: {
+                            id: "1",
+                            name: "胡小姐",
+                            avatar: "./images/avatar_6.png",
+                            title: "软件工程师"
+                        },
+                        detail: " 1.编程基础扎实，熟悉io、多线程、集合等基础框架；三年以上使用java进行研发的经验，熟练使用spring、MVC等框架； < br / >2. 熟悉分布式、 缓存、 消息、 搜索、 数据分析等工作机制； < br / >3. 熟悉常用设计模式， 有大型分布式、 高并发、 高负载、 高可用性系统设计开发经验； < br / >4. 业务理解力强， 学习能力强， 适应能力好， 思路清晰， 善于思考， 能独立分析和解决问题； < br / >5. 有商家业务经验或者零售业相关的ERP、 WMS， 供应链等相关业务系统开发经验者优先。 ",
+                        befines: ["公司氛围好", "五险一金", "老板nice"],
+                        jobList: [{
+                                "id": "11111111111111111",
+                                "title": "Java开发",
+                                "salary": "20k-40k",
+                                "company": "阿里巴巴集团",
+                                "tags": ["北京", "经验不限", "学历不限"]
+                            },
+                            {
+                                "id": "22222222222222222222",
+                                "title": "Java开发",
+                                "salary": "15k-30k",
+                                "company": "阿里巴巴集团",
+                                "tags": ["北京", "经验不限", "本科"]
+                            },
+                            {
+                                "id": "333333333333333333333",
+                                "title": "Java开发",
+                                "salary": "20k-30k",
+                                "company": "阿里巴巴集团",
+                                "tags": ["北京", "3-5年", "本科"]
+                            }
+                        ]
+
+                    }
+                },
+                methods: {
+                    like(jid) {
+                        console.log(jid)
+                    }
+                },
+                created: function () {
+                    //axios
+                    const that = this
+                    fetch('http://127.0.0.1:5500/Vue-Boss/api/mockData/index.json').then(function (res) {
+                        return res.json()
+                    }).then((data) => {
+                        //that.job = data.result
+                        //console.log(data)
+                    })
+                },
+            })
+        </script>
+</body>
+
+</html>
